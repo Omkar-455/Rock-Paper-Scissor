@@ -25,12 +25,13 @@ rock.addEventListener("click", () => {
     human.innerText = "✊"
 })
 
-const showScore = (playrScore,compScore ) =>{
+const showScore = (playrScore, compScore) => {
     humanScore.innerText = `${playrScore}`;
     computerScore.innerText = `${compScore}`;
 }
 
 const showMsg = (randNum) => {
+    // if(human.inn)
     if (clicked === 1) {
         if (randNum === 1) {
             msg.innerText = "Draw ! Play again"
@@ -70,29 +71,32 @@ const showMsg = (randNum) => {
             msg.innerText = "Draw ! Play again"
         }
     }
-   showScore(playrScore,compScore);
+    showScore(playrScore, compScore);
 }
 
 const comChoice = () => {
     let random = Math.ceil((Math.random() * 3))
-    if (human.innerText !== "") {
-        console.log(clicked)
-        if (random === 1) {
-            computer.innerText = "✌️"
-        }
-        else if (random === 2) {
-            computer.innerText = "✋"
-        }
-        else if (random === 3) {
-            computer.innerText = "✊"
-        }
+    if (random === 1) {
+        computer.innerText = "✌️"
+    }
+    else if (random === 2) {
+        computer.innerText = "✋"
+    }
+    else if (random === 3) {
+        computer.innerText = "✊"
     }
     return random;
 }
 
 playBtn.addEventListener("click", () => {
-    let randNum = comChoice();
-    showMsg(randNum);
+    if (human.innerText !== "") {
+        let randNum = comChoice();
+        showMsg(randNum);
+
+    }
+    else {
+        msg.innerText = "Select Choice"
+    }
 })
 
 const reset = () => {
