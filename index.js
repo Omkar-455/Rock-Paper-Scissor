@@ -8,6 +8,7 @@ let computer = document.querySelector(".computer")
 let computerScore = document.querySelector(".computer-score")
 let msg = document.querySelector(".msg")
 let resetBtn = document.querySelector(".reset-btn")
+let borderColour = document.querySelectorAll("span")
 let clicked = 0;
 let playrScore = 0;
 let compScore = 0;
@@ -15,23 +16,42 @@ let compScore = 0;
 scissor.addEventListener("click", () => {
     clicked = 1;
     human.innerText = "✌️"
+    giveBorderColor(clicked)
 })
 paper.addEventListener("click", () => {
     clicked = 2;
-    human.innerText = "✋"
+    human.innerText = "✋";
+    giveBorderColor(clicked)
 })
 rock.addEventListener("click", () => {
     clicked = 3;
     human.innerText = "✊"
+    giveBorderColor(clicked)
 })
 
+const giveBorderColor = (clicked) => {
+    if (clicked === 1) {
+       borderColour[0].classList.add("borderColor");
+       borderColour[1].classList.remove("borderColor");
+       borderColour[2].classList.remove("borderColor");
+    }
+    else if (clicked === 2){
+        borderColour[1].classList.add("borderColor");
+        borderColour[0].classList.remove("borderColor");
+        borderColour[2].classList.remove("borderColor");
+    }
+    else{
+        borderColour[2].classList.add("borderColor");
+        borderColour[0].classList.remove("borderColor");
+        borderColour[1].classList.remove("borderColor");
+    }
+}
 const showScore = (playrScore, compScore) => {
     humanScore.innerText = `${playrScore}`;
     computerScore.innerText = `${compScore}`;
 }
 
 const showMsg = (randNum) => {
-    // if(human.inn)
     if (clicked === 1) {
         if (randNum === 1) {
             msg.innerText = "Draw ! Play again"
