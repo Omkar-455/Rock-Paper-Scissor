@@ -31,16 +31,16 @@ rock.addEventListener("click", () => {
 
 const giveBorderColor = (clicked) => {
     if (clicked === 1) {
-       borderColour[0].classList.add("borderColor");
-       borderColour[1].classList.remove("borderColor");
-       borderColour[2].classList.remove("borderColor");
+        borderColour[0].classList.add("borderColor");
+        borderColour[1].classList.remove("borderColor");
+        borderColour[2].classList.remove("borderColor");
     }
-    else if (clicked === 2){
+    else if (clicked === 2) {
         borderColour[1].classList.add("borderColor");
         borderColour[0].classList.remove("borderColor");
         borderColour[2].classList.remove("borderColor");
     }
-    else{
+    else {
         borderColour[2].classList.add("borderColor");
         borderColour[0].classList.remove("borderColor");
         borderColour[1].classList.remove("borderColor");
@@ -127,6 +127,9 @@ const reset = () => {
     msg.innerText = " "
     computer.innerText = " "
     human.innerText = " "
+    borderColour[0].classList.remove("borderColor");
+    borderColour[1].classList.remove("borderColor");
+    borderColour[2].classList.remove("borderColor");
 }
 
 resetBtn.addEventListener("click", reset)
